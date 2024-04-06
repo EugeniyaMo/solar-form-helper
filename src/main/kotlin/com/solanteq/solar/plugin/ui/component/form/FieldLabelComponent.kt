@@ -4,6 +4,7 @@ import com.intellij.util.ui.JBUI
 import com.solanteq.solar.plugin.element.FormField
 import com.solanteq.solar.plugin.l10n.L10nLocale
 import com.solanteq.solar.plugin.ui.component.form.base.ExpressionAwareComponent
+import com.solanteq.solar.plugin.ui.component.search.LabelMouseListener
 import com.solanteq.solar.plugin.ui.component.util.Refreshable
 import com.solanteq.solar.plugin.ui.editor.FormEditor
 import java.awt.Dimension
@@ -25,6 +26,8 @@ class FieldLabelComponent(
         val labelComponent = JLabel("<html><div style=\"text-align:right;\">$ruL10nValue</div></html>").apply {
             font = font.deriveFont(12f)
         }
+        // listen a click on a label
+        labelComponent.addMouseListener(LabelMouseListener(formElement))
 
         val labelConstraints = GridBagConstraints().apply {
             anchor = GridBagConstraints.LINE_END
