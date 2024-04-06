@@ -2,6 +2,7 @@ package com.solanteq.solar.plugin.ui.component.form
 
 import com.solanteq.solar.plugin.element.FormRow
 import com.solanteq.solar.plugin.ui.component.form.base.ExpressionAwareComponent
+import com.solanteq.solar.plugin.ui.component.form.fields.TextFieldComponent
 import com.solanteq.solar.plugin.ui.editor.FormEditor
 import java.awt.Dimension
 import java.awt.GridBagConstraints
@@ -13,8 +14,9 @@ class RowComponent(
     row: FormRow
 ) : ExpressionAwareComponent<FormRow>(editor, row) {
 
-    private val labeledFields: List<LabeledField>
-    private var visibleLabeledFields: List<LabeledField>? = null
+    private val labeledFields: List<Field>
+    private var visibleLabeledFields: List<Field>? = null
+    private val fieldComponentFactory = FieldComponentFactory()
 
     init {
         layout = GridBagLayout()
@@ -26,8 +28,8 @@ class RowComponent(
             } else {
                 null
             }
-            val fieldComponent = FieldComponent(editor, it)
-            LabeledField(labelComponent, fieldComponent)
+            val fieldComponent = fieldComponentFactory.createFieldComponent(editor, it)
+            Field(labelComponent, fieldComponent)
         } ?: emptyList()
         rebuildIfNeeded()
         updateVisibility()
@@ -37,13 +39,14 @@ class RowComponent(
         rebuildIfNeeded()
         visibleLabeledFields?.forEach {
             it.label?.refresh()
-            it.field.refresh()
+            it.field?.refresh()
         }
         updateVisibility()
     }
 
     private fun rebuildIfNeeded() {
-        val visibleLabeledFields = labeledFields.filter { it.field.shouldBeVisible() }
+        // TODO: throw normal exception
+        val visibleLabeledFields = labeledFields.filter { it.field?.shouldBeVisible() ?: throw Exception("error") }
         if (visibleLabeledFields == this.visibleLabeledFields) {
             return
         }
@@ -55,9 +58,10 @@ class RowComponent(
         visibleLabeledFields.forEach { labeledField ->
             val labelComponent = labeledField.label
             val fieldComponent = labeledField.field
-            val fieldElement = fieldComponent.field
-            val fieldSize = fieldElement.fieldSize ?: FieldComponent.DEFAULT_FIELD_SIZE
-            val labelSize = fieldElement.labelSize ?: FieldLabelComponent.DEFAULT_LABEL_SIZE
+            // TODO: check nullable
+            val fieldElement = fieldComponent?.field
+            val fieldSize = fieldElement?.fieldSize ?: TextFieldComponent.DEFAULT_FIELD_SIZE
+            val labelSize = fieldElement?.labelSize ?: FieldLabelComponent.DEFAULT_LABEL_SIZE
             if(labelComponent != null && labelSize > 0) {
                 val labelConstraint = GridBagConstraints().apply {
                     weightx = labelSize / ROW_COLUMNS.toDouble()
@@ -90,7 +94,7 @@ class RowComponent(
         }
     }
 
-    data class LabeledField(val label: FieldLabelComponent?, val field: FieldComponent)
+    data class Field(val label: FieldLabelComponent?, val field: FieldComponent?)
 
     companion object {
 
