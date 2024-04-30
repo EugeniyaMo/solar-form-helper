@@ -1,7 +1,10 @@
-package com.solanteq.solar.plugin.ui.component.form
+package com.solanteq.solar.plugin.ui.component.form.construction
 
 import com.solanteq.solar.plugin.element.FormRow
+import com.solanteq.solar.plugin.ui.component.form.FieldComponentFactory
+import com.solanteq.solar.plugin.ui.component.form.FieldLabelComponent
 import com.solanteq.solar.plugin.ui.component.form.base.ExpressionAwareComponent
+import com.solanteq.solar.plugin.ui.component.form.data.Field
 import com.solanteq.solar.plugin.ui.component.form.fields.TextFieldComponent
 import com.solanteq.solar.plugin.ui.editor.FormEditor
 import java.awt.Dimension
@@ -93,8 +96,6 @@ class RowComponent(
             add(strut, strutConstraint)
         }
     }
-
-    data class Field(val label: FieldLabelComponent?, val field: FieldComponent?)
 
     companion object {
 

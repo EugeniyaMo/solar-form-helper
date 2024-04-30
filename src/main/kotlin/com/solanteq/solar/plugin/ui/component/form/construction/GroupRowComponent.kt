@@ -1,9 +1,8 @@
-package com.solanteq.solar.plugin.ui.component.form
+package com.solanteq.solar.plugin.ui.component.form.construction
 
 import com.intellij.util.ui.JBUI
 import com.solanteq.solar.plugin.element.FormGroupRow
 import com.solanteq.solar.plugin.ui.component.form.base.ExpressionAwareComponent
-import com.solanteq.solar.plugin.ui.component.util.Refreshable
 import com.solanteq.solar.plugin.ui.component.util.refreshAll
 import com.solanteq.solar.plugin.ui.editor.FormEditor
 import java.awt.GridBagConstraints
@@ -13,7 +12,7 @@ import javax.swing.Box
 class GroupRowComponent(
     editor: FormEditor,
     groupRow: FormGroupRow
-) : ExpressionAwareComponent<FormGroupRow>(editor, groupRow), Refreshable {
+) : ExpressionAwareComponent<FormGroupRow>(editor, groupRow) {
 
     private val groupComponents: List<GroupComponent>
     private var visibleGroups: List<GroupComponent>? = null

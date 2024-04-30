@@ -1,7 +1,7 @@
 package com.solanteq.solar.plugin.ui.component.form.container
 
 import com.solanteq.solar.plugin.element.FormGroupRow
-import com.solanteq.solar.plugin.ui.component.form.GroupRowComponent
+import com.solanteq.solar.plugin.ui.component.form.construction.GroupRowComponent
 import com.solanteq.solar.plugin.ui.component.util.refreshAll
 import com.solanteq.solar.plugin.ui.editor.FormEditor
 

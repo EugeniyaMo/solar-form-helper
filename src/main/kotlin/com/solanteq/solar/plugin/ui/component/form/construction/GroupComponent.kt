@@ -1,4 +1,4 @@
-package com.solanteq.solar.plugin.ui.component.form
+package com.solanteq.solar.plugin.ui.component.form.construction
 
 import com.intellij.ui.util.preferredHeight
 import com.intellij.util.ui.JBUI
@@ -6,7 +6,6 @@ import com.solanteq.solar.plugin.element.FormGroup
 import com.solanteq.solar.plugin.l10n.L10nLocale
 import com.solanteq.solar.plugin.ui.FormColorScheme
 import com.solanteq.solar.plugin.ui.component.form.base.ExpressionAwareComponent
-import com.solanteq.solar.plugin.ui.component.util.Refreshable
 import com.solanteq.solar.plugin.ui.component.util.UniversalBorder
 import com.solanteq.solar.plugin.ui.component.util.ZeroWidthPanel
 import com.solanteq.solar.plugin.ui.component.util.refreshAll
@@ -20,7 +19,7 @@ import javax.swing.JPanel
 class GroupComponent(
     editor: FormEditor,
     val group: FormGroup
-) : ExpressionAwareComponent<FormGroup>(editor, group), Refreshable {
+) : ExpressionAwareComponent<FormGroup>(editor, group) {
 
     private var rowComponents: List<RowComponent>? = null
 

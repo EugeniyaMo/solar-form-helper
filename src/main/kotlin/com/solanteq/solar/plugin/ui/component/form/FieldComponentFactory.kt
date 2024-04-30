@@ -3,6 +3,7 @@ package com.solanteq.solar.plugin.ui.component.form
 import com.solanteq.solar.plugin.element.FormField
 import com.solanteq.solar.plugin.ui.component.form.fields.CheckboxFieldComponent
 import com.solanteq.solar.plugin.ui.component.form.fields.DropdownFieldComponent
+import com.solanteq.solar.plugin.ui.component.form.fields.FieldComponent
 import com.solanteq.solar.plugin.ui.component.form.fields.TextFieldComponent
 import com.solanteq.solar.plugin.ui.editor.FormEditor
 

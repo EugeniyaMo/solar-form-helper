@@ -8,6 +8,7 @@ import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.Key
 import com.intellij.openapi.util.UserDataHolderBase
 import com.intellij.openapi.vfs.VirtualFile
+import com.solanteq.solar.plugin.element.FormRootFile
 import com.solanteq.solar.plugin.ui.component.FormEditorPanel
 import org.jetbrains.kotlin.idea.core.util.toPsiFile
 import java.beans.PropertyChangeListener
@@ -83,6 +84,10 @@ class FormEditor(
 
     fun applyState() {
         editorPanel.refresh()
+    }
+
+    fun getRootFile(): FormRootFile? {
+        return FormRootFile.createFrom(file)
     }
 
 }

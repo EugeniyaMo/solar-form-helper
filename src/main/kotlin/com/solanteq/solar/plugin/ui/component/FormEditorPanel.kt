@@ -1,7 +1,6 @@
 package com.solanteq.solar.plugin.ui.component
 
 import com.intellij.json.psi.JsonFile
-import com.intellij.openapi.application.invokeLater
 import com.intellij.openapi.application.runReadAction
 import com.intellij.openapi.project.DumbService
 import com.intellij.openapi.project.Project
@@ -10,7 +9,7 @@ import com.intellij.ui.components.JBPanel
 import com.intellij.ui.components.JBScrollPane
 import com.solanteq.solar.plugin.element.FormRootFile
 import com.solanteq.solar.plugin.ui.component.config.FormConfigurationComponent
-import com.solanteq.solar.plugin.ui.component.form.RootFormComponent
+import com.solanteq.solar.plugin.ui.component.form.construction.RootFormComponent
 import com.solanteq.solar.plugin.ui.editor.FormEditor
 import com.solanteq.solar.plugin.util.jsonModificationTracker
 import org.jetbrains.kotlin.idea.util.application.executeOnPooledThread
@@ -75,7 +74,7 @@ class FormEditorPanel(
     }
 
     private fun doRebuild() {
-        val form = FormRootFile.createFrom(file) ?: return
+        val form = editor.getRootFile() ?: return
 
         rootFormComponent = RootFormComponent(editor, form)
         configurationComponent = FormConfigurationComponent(editor, form)

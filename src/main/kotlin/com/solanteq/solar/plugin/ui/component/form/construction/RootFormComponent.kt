@@ -1,4 +1,4 @@
-package com.solanteq.solar.plugin.ui.component.form
+package com.solanteq.solar.plugin.ui.component.form.construction
 
 import com.intellij.util.ui.JBUI
 import com.solanteq.solar.plugin.element.FormRootFile

@@ -1,4 +1,4 @@
-package com.solanteq.solar.plugin.ui.component.form
+package com.solanteq.solar.plugin.ui.component.form.fields
 
 import com.solanteq.solar.plugin.element.FormField
 import com.solanteq.solar.plugin.ui.component.form.base.ExpressionAwareComponent

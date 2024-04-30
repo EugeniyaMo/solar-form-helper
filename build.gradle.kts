@@ -10,6 +10,7 @@ val jupiterVersion = "5.10.0"
 val remoteRobotVersion = "0.11.21"
 val loggingInterceptorVersion = "4.12.0"
 val mockkVersion = "1.13.9"
+val gsonVersion = "2.10.1"
 
 group = "com.solanteq.solar.plugin"
 version = "1.0.0-SNAPSHOT"
@@ -44,6 +45,7 @@ dependencies {
     testImplementation("com.intellij.remoterobot:ide-launcher:$remoteRobotVersion")
     testImplementation("com.squareup.okhttp3:logging-interceptor:$loggingInterceptorVersion")
     testImplementation("io.mockk:mockk:$mockkVersion")
+    implementation("com.google.code.gson:gson:$gsonVersion")
 }
 
 tasks.register("cleanAndRunIdeForUiTests") {

@@ -4,8 +4,8 @@ import com.intellij.util.ui.JBUI
 import com.solanteq.solar.plugin.element.FormField
 import com.solanteq.solar.plugin.l10n.L10nLocale
 import com.solanteq.solar.plugin.ui.component.form.base.ExpressionAwareComponent
+import com.solanteq.solar.plugin.ui.component.form.construction.RowComponent
 import com.solanteq.solar.plugin.ui.component.search.LabelMouseListener
-import com.solanteq.solar.plugin.ui.component.util.Refreshable
 import com.solanteq.solar.plugin.ui.editor.FormEditor
 import java.awt.Dimension
 import java.awt.GridBagConstraints
@@ -15,7 +15,7 @@ import javax.swing.JLabel
 class FieldLabelComponent(
     editor: FormEditor,
     val field: FormField
-) : ExpressionAwareComponent<FormField>(editor, field), Refreshable {
+) : ExpressionAwareComponent<FormField>(editor, field) {
 
     init {
         layout = GridBagLayout()
@@ -27,7 +27,7 @@ class FieldLabelComponent(
             font = font.deriveFont(12f)
         }
         // listen a click on a label
-        labelComponent.addMouseListener(LabelMouseListener(formElement))
+        labelComponent.addMouseListener(LabelMouseListener(editor, formElement, labelComponent))
 
         val labelConstraints = GridBagConstraints().apply {
             anchor = GridBagConstraints.LINE_END

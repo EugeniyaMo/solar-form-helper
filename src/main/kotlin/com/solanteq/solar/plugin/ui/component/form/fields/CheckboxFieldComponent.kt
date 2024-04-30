@@ -3,8 +3,7 @@ package com.solanteq.solar.plugin.ui.component.form.fields
 import com.intellij.ui.util.preferredHeight
 import com.solanteq.solar.plugin.element.FormField
 import com.solanteq.solar.plugin.ui.FormColorScheme
-import com.solanteq.solar.plugin.ui.component.form.FieldComponent
-import com.solanteq.solar.plugin.ui.component.form.RowComponent
+import com.solanteq.solar.plugin.ui.component.form.construction.RowComponent
 import com.solanteq.solar.plugin.ui.component.util.UniversalBorder
 import com.solanteq.solar.plugin.ui.editor.FormEditor
 import java.awt.Dimension
@@ -41,7 +40,7 @@ class CheckboxFieldComponent(
     }
 
     override fun refresh() {
-        TODO("Not yet implemented")
+
     }
 
     companion object {
