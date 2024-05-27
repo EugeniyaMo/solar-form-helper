@@ -41,8 +41,7 @@ class JsonHandler {
         return when (actionType) {
             ActionType.ADD_RIGHT_ELEMENT -> getStartLineNumber(element)
             ActionType.ADD_LEFT_ELEMENT -> getEndLineNumber(element)
-            // TODO: do norm exceptions
-            else -> throw Exception("error")
+            else -> throw Exception("ERROR: Unknown action type")
         }
     }
 
