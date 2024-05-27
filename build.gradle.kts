@@ -11,6 +11,7 @@ val remoteRobotVersion = "0.11.21"
 val loggingInterceptorVersion = "4.12.0"
 val mockkVersion = "1.13.9"
 val gsonVersion = "2.10.1"
+val mockitoVersion = "3.2.0"
 
 group = "com.solanteq.solar.plugin"
 version = "1.0.0-SNAPSHOT"
@@ -46,6 +47,8 @@ dependencies {
     testImplementation("com.squareup.okhttp3:logging-interceptor:$loggingInterceptorVersion")
     testImplementation("io.mockk:mockk:$mockkVersion")
     implementation("com.google.code.gson:gson:$gsonVersion")
+    testImplementation("org.mockito.kotlin:mockito-kotlin:$mockitoVersion")
+    testImplementation ("org.assertj:assertj-swing-junit:3.17.1")
 }
 
 tasks.register("cleanAndRunIdeForUiTests") {

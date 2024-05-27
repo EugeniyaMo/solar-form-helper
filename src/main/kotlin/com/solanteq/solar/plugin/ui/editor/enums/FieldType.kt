@@ -1,6 +1,6 @@
 package com.solanteq.solar.plugin.ui.editor.enums
 
-enum class FormType {
+enum class FieldType {
     STRING,
     PASSWORD,
     INTEGER,
@@ -28,7 +28,7 @@ enum class FormType {
 
     companion object {
         fun getArrayValues(): Array<String> {
-            return FormType.values().map { it.name }.toTypedArray()
+            return FieldType.values().map { it.name }.toTypedArray()
         }
     }
 }

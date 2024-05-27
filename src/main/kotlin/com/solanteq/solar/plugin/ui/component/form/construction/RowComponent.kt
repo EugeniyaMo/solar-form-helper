@@ -65,7 +65,7 @@ class RowComponent(
             val fieldElement = fieldComponent?.field
             val fieldSize = fieldElement?.fieldSize ?: TextFieldComponent.DEFAULT_FIELD_SIZE
             val labelSize = fieldElement?.labelSize ?: FieldLabelComponent.DEFAULT_LABEL_SIZE
-            if(labelComponent != null && labelSize > 0) {
+            if (labelComponent != null && labelSize > 0) {
                 val labelConstraint = GridBagConstraints().apply {
                     weightx = labelSize / ROW_COLUMNS.toDouble()
                     gridx = index++
@@ -83,7 +83,7 @@ class RowComponent(
             add(fieldComponent, fieldConstraint)
             size += fieldSize + labelSize
         }
-        if(size < ROW_COLUMNS) {
+        if (size < ROW_COLUMNS) {
             val strutConstraint = GridBagConstraints().apply {
                 weightx = (ROW_COLUMNS - size) / ROW_COLUMNS.toDouble()
                 gridx = index++

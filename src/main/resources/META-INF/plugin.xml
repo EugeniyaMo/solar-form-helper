@@ -145,5 +145,10 @@
 
         <!-- UI -->
         <fileEditorProvider implementation="com.solanteq.solar.plugin.ui.editor.FormEditorProvider"/>
+
+        <notificationGroup id="Error Notification"
+                           displayType="EVENT_LOG"
+                           toolWindowId="Error Log"
+        />
     </extensions>
 </idea-plugin>

@@ -16,7 +16,7 @@ class DropdownFieldComponent(
     field: FormField
 ) : FieldComponent(editor, field) {
 
-    private val testField = JComboBox(emptyArray<Long>())
+    private val dropdownField = JComboBox(emptyArray<Long>())
 
     init {
         layout = GridBagLayout()
@@ -27,12 +27,12 @@ class DropdownFieldComponent(
             weightx = 1.0
             weighty = 1.0
         }
-        testField.preferredHeight = FIELD_HEIGHT
-        testField.border = UniversalBorder.builder()
+        dropdownField.preferredHeight = FIELD_HEIGHT
+        dropdownField.border = UniversalBorder.builder()
             .radius(4)
             .color(FormColorScheme.BORDER_COLOR)
             .build()
-        add(testField, fieldConstraints)
+        add(dropdownField, fieldConstraints)
     }
 
     override fun getFormField(): FormField {
@@ -40,7 +40,6 @@ class DropdownFieldComponent(
     }
 
     override fun refresh() {
-        TODO("Not yet implemented")
     }
 
     companion object {

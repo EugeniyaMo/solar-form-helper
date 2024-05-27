@@ -16,7 +16,7 @@ class TextFieldComponent(
     field: FormField
 ) : FieldComponent(editor, field) {
 
-    private val testField = JTextField()
+    private val textField = JTextField()
 
     init {
         layout = GridBagLayout()
@@ -27,16 +27,15 @@ class TextFieldComponent(
             weightx = 1.0
             weighty = 1.0
         }
-        testField.preferredHeight = FIELD_HEIGHT
-        testField.border = UniversalBorder.builder()
+        textField.preferredHeight = FIELD_HEIGHT
+        textField.border = UniversalBorder.builder()
             .radius(4)
             .color(FormColorScheme.BORDER_COLOR)
             .build()
-        add(testField, fieldConstraints)
+        add(textField, fieldConstraints)
     }
 
     override fun refresh() {
-        //do nothing for now
     }
 
     override fun getFormField(): FormField {
@@ -44,10 +43,8 @@ class TextFieldComponent(
     }
 
     companion object {
-
         const val DEFAULT_FIELD_SIZE = 4
         const val FIELD_HEIGHT = 25
-
     }
 
 }
